@@ -1,0 +1,11 @@
+.idea/
+venv
+bookmarks/db.sqlite3
+bookmarks/bookmarks/.env
+bookmarks/bookmarks/__pycache__
+blog/__pycache__/
+bookmarks/account/management/__pycache__/
+bookmarks/account/management/commands/__pycache__/
+bookmarks/account/migrations/__pycache__/
+bookmarks/account/templatetags/__pycache__/
+bookmarks/account/__pycache__/
