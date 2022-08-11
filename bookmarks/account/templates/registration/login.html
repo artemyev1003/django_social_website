@@ -13,12 +13,12 @@
 <p>Please use the following form to log in</p>
 {% endif %}
 <div class="login-form">
-<form action="{% url 'account:login' %}" method="post">
+<form action="{% url 'login' %}" method="post">
     {{ form.as_p }}
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ next }}" />
     <p><input type="submit" value="Log in"></p>
 </form>
-    <p><a href="{% url 'account:password_reset' %}">Forgot your password?</a></p>
+    <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
 </div>
 {% endblock %}
