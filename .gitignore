@@ -9,3 +9,4 @@ bookmarks/account/management/commands/__pycache__/
 bookmarks/account/migrations/__pycache__/
 bookmarks/account/templatetags/__pycache__/
 bookmarks/account/__pycache__/
+/bookmarks/media/
