@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(v&&d6ox#1b_jw6h+lw%e&(_h(^!38amzmmc^_pra*7fj7k9^q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 INSTALLED_APPS = [
@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'django_extensions',
 ]
 
 # Application definition
@@ -136,4 +138,13 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
 ]
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1924995447709991'
+SOCIAL_AUTH_FACEBOOK_SECRET = '1b3a72cd6d2ad9bdc99c57e33fc9190c'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '750540866999-igbp8aa4dkpribb4dff8d8hbof6s29f8.apps.googleusercontent.com'
+SOSIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False

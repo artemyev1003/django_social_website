@@ -22,4 +22,15 @@ If you don't have an account <a href="{% url 'account:register' %}">register her
 </form>
     <p><a href="{% url 'account:password_reset' %}">Forgot your password?</a></p>
 </div>
+
+<div class="social">
+    <ul>
+        <li class="facebook">
+            <a href="{% url 'social:begin' 'facebook' %}">Log in with Facebook</a>
+        </li>
+        <li class="google">
+            <a href="{% url 'social:begin' 'google-oauth2' %}">Log in with Google</a>
+        </li>
+    </ul>
+</div>
 {% endblock %}
