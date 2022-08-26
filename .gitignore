@@ -12,3 +12,5 @@ bookmarks/account/__pycache__/
 /bookmarks/media/
 /bookmarks/cert.crt
 /bookmarks/cert.key
+bookmarks/images/__pycache__/
+bookmarks/images/migrations/__pycache__/
