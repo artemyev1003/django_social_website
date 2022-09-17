@@ -1,11 +1,10 @@
-from urllib.parse import urlencode
-
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
-from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.views import View
 from .forms import UserRegistrationForm, UserEditForm, ProfileEditForm, CustomAuthenticationForm
@@ -53,8 +52,6 @@ def register_success(request, name):
                   {'new_user': name})
 
 
-# @method_decorator(login_required, name='get')
-# @method_decorator(login_required, name='post')
 class ProfileUpdateView(LoginRequiredMixin, View):
     def get(self, request):
         user_form = UserEditForm(instance=request.user)
@@ -81,3 +78,23 @@ class ProfileUpdateView(LoginRequiredMixin, View):
                       'account/update.html',
                       {'user_form': user_form,
                        'profile_form': profile_form})
+
+
+@login_required
+def user_list(request):
+    users = User.objects.filter(is_active=True)
+    return render(request,
+                  'account/user/list.html',
+                  {'section': 'people',
+                   'users': users})
+
+
+@login_required
+def user_detail(request, username):
+    user = get_object_or_404(User,
+                             username=username,
+                             is_active=True)
+    return render(request,
+                  'account/user/detail.html',
+                  {'section': 'people',
+                   'user': user})

@@ -4,7 +4,8 @@ from django.contrib.auth.views import (LogoutView,
                                        PasswordResetView, PasswordResetDoneView,
                                        PasswordResetConfirmView, PasswordResetCompleteView,
                                        )
-from .views import dashboard, RegisterView, register_success, ProfileUpdateView, CustomLoginView
+from .views import (dashboard, RegisterView, register_success,
+                    ProfileUpdateView, CustomLoginView, user_list, user_detail)
 
 app_name = 'account'
 
@@ -29,4 +30,6 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
     path('register/done/<str:name>/', register_success, name='register_success'),
     path('update/', ProfileUpdateView.as_view(), name='update'),
+    path('users/', user_list, name='user_list'),
+    path('users/<username>', user_detail, name='user_detail'),
 ]
