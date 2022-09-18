@@ -5,6 +5,15 @@
 {% block content %}
 <h1>{{ image.title }}</h1>
 {% load thumbnail %}
+
+<!--
+What you need is {{ image.image.url }} & {{ image.image.path }},
+where {{ image }} is just an Image object, instance of the defined model
+and {{ image.image }} gets us to the field which is ImageField
+object and provides all the specified attributes.
+-->
+
+
 <a href="{{ image.image.url }}">
     <img src="{% thumbnail image.image 200x0 quality=100 %}" class="image-detail">
 </a>

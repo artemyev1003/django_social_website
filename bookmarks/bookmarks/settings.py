@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
+    'actions.apps.ActionsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -154,6 +155,6 @@ SOSIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
 ABSOLUTE_URL_OVERRIDES = {
-    'auth.user': lambda u: reverse_lazy('user_detail',
+    'auth.user': lambda u: reverse_lazy('account:user_detail',
                                         args=[u.username])
 }
